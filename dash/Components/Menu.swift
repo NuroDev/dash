@@ -9,26 +9,8 @@
 import SwiftUI
 
 struct Menu: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Spacer()
-                
-                Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "xmark")
-                        .foregroundColor(.primary)
-                        .font(.title)
-                        .padding(.all)
-                }
-                .padding(.all)
-            }
-            
-            Spacer()
-        }
+        SheetNavBar()
     }
 }
 
