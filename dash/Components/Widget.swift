@@ -39,6 +39,13 @@ struct Widget: View {
                 .padding(.leading, 6)
                 
                 Spacer()
+                
+                Button(action: {}) {
+                    Image(systemName: "ellipsis")
+                        .foregroundColor(.primary)
+                        .padding(.all)
+                }
+                .padding(.all)
             }
             .padding(.bottom)
             
