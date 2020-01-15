@@ -1,0 +1,21 @@
+name: 🔨 Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        destination:
+          - 'platform=macOS'
+        xcode:
+          - '/Applications/Xcode_11.3.app/Contents/Developer'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: xcodebuild clean build -project dash.xcodeproj -scheme dash -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+        env: 
+         destination: ${{ matrix.destination }}
