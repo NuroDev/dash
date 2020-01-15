@@ -29,6 +29,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
+        
+        // Hide window titlebar
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        #if targetEnvironment(macCatalyst)
+        if let titlebar = windowScene.titlebar {
+            titlebar.titleVisibility = .hidden
+            titlebar.toolbar = nil
+        }
+        #endif
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
